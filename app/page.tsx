@@ -28,7 +28,7 @@ export default function Home() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-slate-700 sm:text-xl">
-            Stop fumbling with terminal commands and local configs. Manage and switch your Git identities and signing keys directly from your macOS menu bar.
+            Stop fumbling with terminal commands and local configs. Manage and switch your Git identities and signing keys directly from your macOS menu bar or Windows system tray.
           </p>
 
           <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:justify-center">
@@ -37,7 +37,7 @@ export default function Home() {
               className="group flex items-center justify-center gap-3 rounded-xl border-4 border-slate-900 bg-[#ff5e5e] px-8 py-4 text-lg font-bold text-slate-900 shadow-[6px_6px_0_0_#0f172a] transition-all active:translate-x-[6px] active:translate-y-[6px] active:shadow-none hover:-translate-y-1 hover:shadow-[6px_10px_0_0_#0f172a]"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
-              Download for macOS
+              Download
             </a>
 
           </div>
@@ -56,7 +56,7 @@ export default function Home() {
               className="lg:col-span-1 lg:row-span-1 bg-[#c084fc]"
               icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M7 7h.01" /><path d="M17 7h.01" /><path d="M7 17h.01" /><path d="M17 17h.01" /></svg>}
               title="Tray Menu Integration"
-              description="Lives quietly in your menu bar. Switch your active Git profile with just two clicks without opening the terminal."
+              description="Lives quietly in your menu bar or system tray. Switch your active Git profile with just two clicks without opening the terminal."
             />
             <FeatureCard
               className="lg:col-span-1 lg:row-span-1 bg-[#67e8f9]"
@@ -96,8 +96,8 @@ export default function Home() {
               answer="Just click 'Open Settings' from the tray menu. You'll get a clean interface to add, edit, or remove profiles and their associated signing keys."
             />
             <FaqItem
-              question="Is Windows or Linux supported?"
-              answer="GHSwitch is currently built and optimized for macOS using native macOS tray APIs. Windows and Linux support may be added in future releases."
+              question="Is Linux supported?"
+              answer="GHSwitch is fully compatible with macOS and Windows. Linux support may be added in future releases."
             />
           </div>
         </div>
