@@ -14,13 +14,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ghswitch.achuth.dev"),
   title: "GHSwitch - Fast Git Profile Switcher",
   description: "Instantly switch between your Git profiles and signing keys right from your menu bar. Built with Tauri for native performance.",
   keywords: ["git", "profile", "manager", "switcher", "macos", "menu bar", "tauri"],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "GHSwitch - Fast Git Profile Switcher",
     description: "Manage and switch your Git profiles instantly from your menu bar.",
-    url: "https://ghswitch.app",
+    url: "https://ghswitch.achuth.dev",
     siteName: "GHSwitch",
     images: [
       {
@@ -51,9 +55,9 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <Analytics />
       <body className="min-h-full flex flex-col bg-[#e8e8e3] text-slate-900 selection:bg-blue-500/30">
         {children}
+        <Analytics />
       </body>
     </html>
   );
