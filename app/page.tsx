@@ -33,7 +33,7 @@ export default function Home() {
 
           <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:justify-center">
             <a
-              href="#"
+              href="https://github.com/achuthhadnoor/ghswitch-www/releases/latest"
               className="group flex items-center justify-center gap-3 rounded-xl border-4 border-slate-900 bg-[#ff5e5e] px-8 py-4 text-lg font-bold text-slate-900 shadow-[6px_6px_0_0_#0f172a] transition-all active:translate-x-[6px] active:translate-y-[6px] active:shadow-none hover:-translate-y-1 hover:shadow-[6px_10px_0_0_#0f172a]"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
