@@ -1,9 +1,34 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { Wifi, Battery, Search } from "lucide-react";
 import AppIcon from "./assets/app-icon.png";
 import TrayIcon from "./assets/tray.png";
 import BackgroundImage from "./assets/background-image.png";
 
 export default function Home() {
+  const [timeString, setTimeString] = useState("Fri Jul 3 10:31 PM");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const updateTime = () => {
+      const now = new Date();
+      const weekday = now.toLocaleDateString("en-US", { weekday: "short" });
+      const month = now.toLocaleDateString("en-US", { month: "short" });
+      const day = now.getDate();
+      const rawHour = now.getHours();
+      const hour = rawHour % 12 || 12;
+      const ampm = rawHour >= 12 ? "PM" : "AM";
+      const minute = now.getMinutes().toString().padStart(2, "0");
+      setTimeString(`${weekday} ${month} ${day} ${hour}:${minute} ${ampm}`);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden text-slate-900">
 
@@ -17,12 +42,14 @@ export default function Home() {
             <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.3 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.3zM234.5 106.6c20.3-25.1 31.9-55.5 28.5-86.6-26.6 1.1-57.8 17.6-78.6 42.1-18.2 21.4-31 51.5-27.2 81.4 29.8 2.2 57.3-13.6 77.3-36.9z" />
           </svg>
           <span className="font-bold">GHSwitch</span>
-          <span>File</span>
-          <span>Edit</span>
-          <span>View</span>
-          <span>Go</span>
-          <span>Window</span>
-          <span>Help</span>
+          <div className="hidden md:flex gap-2 items-center">
+            <span>File</span>
+            <span>Edit</span>
+            <span>View</span>
+            <span>Go</span>
+            <span>Window</span>
+            <span>Help</span>
+          </div>
         </div>
         <div className="flex items-center gap-4">
           <div className="relative flex items-center h-full cursor-pointer">
@@ -31,24 +58,25 @@ export default function Home() {
             <div className="absolute top-full right-0 mt-2 w-72 rounded-xl bg-[#1e1e1e]/40 backdrop-blur-2xl border border-white/20 shadow-2xl p-1.5 text-white/90 text-[13px]">
               <div className="px-3 py-1.5 flex items-center gap-2 rounded-md bg-blue-500 text-white">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                <span className="truncate">Neha Singh <span className="text-white/70">(neha...85@gmail.com)</span></span>
+                <span className="truncate">Neha Singh <span className="text-white/70">(neha.onegit@gmail.com)</span></span>
               </div>
               <div className="px-3 py-1.5 flex items-center gap-2 rounded-md hover:bg-white/10 ml-5">
-                <span className="truncate">Neha Singh <span className="text-white/50">(neha...1992@gmail.com)</span></span>
+                <span className="truncate">Neha Singh <span className="text-white/50">(neha.twogit@gmail.com)</span></span>
               </div>
               <div className="h-px bg-white/10 my-1 mx-2" />
               <div className="px-3 py-1.5 rounded-md hover:bg-white/10 mx-1 ml-5">Open Settings</div>
               <div className="px-3 py-1.5 rounded-md hover:bg-white/10 mx-1 ml-5">Quit</div>
             </div>
           </div>
-
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0" /><path d="M1.42 9a16 16 0 0 1 21.16 0" /><path d="M8.53 16.11a6 6 0 0 1 6.95 0" /><line x1="12" y1="20" x2="12.01" y2="20" /></svg>
-          <div className="flex items-center gap-1">
-            <span>21%</span>
-            <svg width="20" height="12" viewBox="0 0 24 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="2" width="20" height="10" rx="2" ry="2" /><line x1="23" y1="5" x2="23" y2="9" /><rect x="3" y="4" width="4" height="6" fill="currentColor" /></svg>
+          <div className="hidden md:flex gap-4 items-center">
+            <Wifi className="w-3.5 h-3.5" />
+            <div className="flex items-center gap-1">
+              <span>21%</span>
+              <Battery className="w-[18px] h-[18px]" />
+            </div>
+            <Search className="w-3.5 h-3.5" />
+          <span>{mounted ? timeString : "Fri Jul 3 10:31 PM"}</span>
           </div>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
-          <span>Fri Jul 3 10:31 PM</span>
         </div>
       </div>
       <main className="z-10 flex w-full container flex-col justify-center px-6 py-24 sm:px-12 md:py-32 min-h-screen relative">
@@ -66,16 +94,15 @@ export default function Home() {
             Git Profiles,<br />
             instantly switched.
           </h1>
-          <div className="mt-12 flex items-center gap-4 text-[#cbd5e1] text-xl font-medium">
-            <span>Available on:</span>
-            <div className="flex gap-6 items-center">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Download for macOS via Polar">
-                <svg width="24" height="24" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.3 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.3zM234.5 106.6c20.3-25.1 31.9-55.5 28.5-86.6-26.6 1.1-57.8 17.6-78.6 42.1-18.2 21.4-31 51.5-27.2 81.4 29.8 2.2 57.3-13.6 77.3-36.9z" /></svg>
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Download for Windows via Polar">
-                <svg width="24" height="24" viewBox="0 0 448 512" fill="currentColor"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z" /></svg>
-              </a>
-            </div>
+          <div className="mt-12 flex flex-col md:flex-row gap-4 w-full sm:w-auto">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 px-8 py-3.5 text-lg font-bold text-white shadow-lg backdrop-blur-sm transition-all hover:-translate-y-1 active:translate-y-0" title="Download for macOS via Polar">
+              <svg width="20" height="20" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.3 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.3zM234.5 106.6c20.3-25.1 31.9-55.5 28.5-86.6-26.6 1.1-57.8 17.6-78.6 42.1-18.2 21.4-31 51.5-27.2 81.4 29.8 2.2 57.3-13.6 77.3-36.9z" /></svg>
+              Download for macOS
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 px-8 py-3.5 text-lg font-bold text-white shadow-lg backdrop-blur-sm transition-all hover:-translate-y-1 active:translate-y-0" title="Download for Windows via Polar">
+              <svg width="20" height="20" viewBox="0 0 448 512" fill="currentColor"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z" /></svg>
+              Download for Windows
+            </a>
           </div>
         </div>
 
