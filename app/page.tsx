@@ -1,45 +1,81 @@
 import Image from "next/image";
 import AppIcon from "./assets/app-icon.png";
+import TrayIcon from "./assets/tray.png";
+import BackgroundImage from "./assets/background-image.png";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#e8e8e3] text-slate-900">
+    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden text-slate-900">
 
-      {/* Subtle Dot Grid Background */}
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(#d4d4d0_1px,transparent_1px)] [background-size:16px_16px] opacity-70" />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 bg-cover bg-center  h-screen" style={{ backgroundImage: `url(${BackgroundImage.src})` }} />
 
-      <main className="z-10 flex w-full max-w-5xl flex-col items-center justify-center px-6 py-24 sm:px-12 md:py-32">
-
-        {/* Hero Section */}
-        <div className="flex flex-col items-center text-center">
-          <div className="mb-8 rounded-2xl border-4 transition-all ">
-            <Image
-              src={AppIcon}
-              alt="GHSwitch Icon"
-              width={80}
-              height={80}
-              priority
-              className="rounded-xl"
-            />
+      {/* macOS Menubar Mockup */}
+      <div className="absolute top-0 inset-x-0 h-7 bg-black/20 backdrop-blur-md flex justify-between items-center px-4 text-white/90 text-[13px] font-medium z-50 shadow-sm border-b border-white/10">
+        <div className="flex items-center gap-4">
+          <svg viewBox="0 0 384 512" width="14" height="14" fill="currentColor">
+            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.3 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.3zM234.5 106.6c20.3-25.1 31.9-55.5 28.5-86.6-26.6 1.1-57.8 17.6-78.6 42.1-18.2 21.4-31 51.5-27.2 81.4 29.8 2.2 57.3-13.6 77.3-36.9z" />
+          </svg>
+          <span className="font-bold">GHSwitch</span>
+          <span>File</span>
+          <span>Edit</span>
+          <span>View</span>
+          <span>Go</span>
+          <span>Window</span>
+          <span>Help</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="relative flex items-center h-full cursor-pointer">
+            <span className="bg-white/10 px-2 py-1 rounded-md"><Image src={TrayIcon} width={12} height={12} alt="GHSwitch" /></span>
+            {/* Dropdown Menu */}
+            <div className="absolute top-full right-0 mt-2 w-72 rounded-xl bg-[#1e1e1e]/40 backdrop-blur-2xl border border-white/20 shadow-2xl p-1.5 text-white/90 text-[13px]">
+              <div className="px-3 py-1.5 flex items-center gap-2 rounded-md bg-blue-500 text-white">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                <span className="truncate">Neha Singh <span className="text-white/70">(neha...85@gmail.com)</span></span>
+              </div>
+              <div className="px-3 py-1.5 flex items-center gap-2 rounded-md hover:bg-white/10 ml-5">
+                <span className="truncate">Neha Singh <span className="text-white/50">(neha...1992@gmail.com)</span></span>
+              </div>
+              <div className="h-px bg-white/10 my-1 mx-2" />
+              <div className="px-3 py-1.5 rounded-md hover:bg-white/10 mx-1 ml-5">Open Settings</div>
+              <div className="px-3 py-1.5 rounded-md hover:bg-white/10 mx-1 ml-5">Quit</div>
+            </div>
           </div>
 
-          <h1 className="text-5xl font-black uppercase tracking-tight text-slate-900 sm:text-7xl drop-shadow-sm">
-            Git Profiles, <br className="hidden sm:block" /> instantly switched.
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0" /><path d="M1.42 9a16 16 0 0 1 21.16 0" /><path d="M8.53 16.11a6 6 0 0 1 6.95 0" /><line x1="12" y1="20" x2="12.01" y2="20" /></svg>
+          <div className="flex items-center gap-1">
+            <span>21%</span>
+            <svg width="20" height="12" viewBox="0 0 24 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="2" width="20" height="10" rx="2" ry="2" /><line x1="23" y1="5" x2="23" y2="9" /><rect x="3" y="4" width="4" height="6" fill="currentColor" /></svg>
+          </div>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+          <span>Fri Jul 3 10:31 PM</span>
+        </div>
+      </div>
+      <main className="z-10 flex w-full container flex-col justify-center px-6 py-24 sm:px-12 md:py-32 min-h-screen relative">
+
+
+        {/* Hero Section */}
+        <div className="flex flex-col items-start text-left max-w-2xl mt-[-10vh] pl-4 sm:pl-16 pt-24 gap-4">
+          {/* Desktop App Icon */}
+          <div className="flex flex-col items-center gap-1.5 z-40">
+            <Image src={AppIcon} width={64} height={64} alt="GHSwitch" className="rounded-2xl shadow-xl border border-white/10" />
+            <span className="text-white text-[12px] font-bold drop-shadow-md" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>GHSwitch</span>
+          </div>
+
+          <h1 className="text-6xl sm:text-7xl lg:text-[5.5rem] font-[family-name:var(--font-instrument-serif)] font-normal text-[#e2e8f0] drop-shadow-lg">
+            Git Profiles,<br />
+            instantly switched.
           </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg font-medium text-slate-700 sm:text-xl">
-            Stop fumbling with terminal commands and local configs. Manage and switch your Git identities and signing keys directly from your macOS menu bar or Windows system tray.
-          </p>
-
-          <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:justify-center">
-            <a
-              href="https://github.com/achuthhadnoor/ghswitch-www/releases/latest"
-              className="group flex items-center justify-center gap-3 rounded-xl border-4 border-slate-900 bg-[#ff5e5e] px-8 py-4 text-lg font-bold text-slate-900 shadow-[6px_6px_0_0_#0f172a] transition-all active:translate-x-[6px] active:translate-y-[6px] active:shadow-none hover:-translate-y-1 hover:shadow-[6px_10px_0_0_#0f172a]"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
-              Download
-            </a>
-
+          <div className="mt-12 flex items-center gap-4 text-[#cbd5e1] text-xl font-medium">
+            <span>Available on:</span>
+            <div className="flex gap-6 items-center">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Download for macOS via Polar">
+                <svg width="24" height="24" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.3 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.3zM234.5 106.6c20.3-25.1 31.9-55.5 28.5-86.6-26.6 1.1-57.8 17.6-78.6 42.1-18.2 21.4-31 51.5-27.2 81.4 29.8 2.2 57.3-13.6 77.3-36.9z" /></svg>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" title="Download for Windows via Polar">
+                <svg width="24" height="24" viewBox="0 0 448 512" fill="currentColor"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z" /></svg>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -80,7 +116,7 @@ export default function Home() {
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-32 w-full max-w-3xl">
+        <div className="mt-32 w-full max-w-3xl mx-auto">
           <h2 className="mb-12 text-center text-4xl font-black uppercase text-slate-900 drop-shadow-sm">Frequently Asked Questions</h2>
           <div className="flex flex-col gap-6">
             <FaqItem
@@ -105,7 +141,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="absolute bottom-6 font-bold text-sm text-slate-600">
-        Built with ❤️ by <a href="https://achuth.dev" target="_blank" rel="noreferrer" className="underline decoration-2 underline-offset-4 hover:text-slate-900">Achuth</a>
+        Built with ❤️ by Neha & <a href="https://achuth.dev" target="_blank" rel="noreferrer" className="underline decoration-2 underline-offset-4 hover:text-slate-900">Achuth</a>
       </footer>
     </div>
   );
