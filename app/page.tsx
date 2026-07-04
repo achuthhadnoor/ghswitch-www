@@ -96,7 +96,7 @@ export default function Home() {
           </h1>
           <div className="mt-12 flex flex-col md:flex-row gap-6 w-full sm:w-auto">
             <div className="flex flex-col items-center gap-2.5">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center gap-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 px-8 py-3.5 text-lg font-bold text-white shadow-lg backdrop-blur-sm transition-all hover:-translate-y-1 active:translate-y-0" title="Download for macOS via Polar">
+              <a href="https://buy.polar.sh/polar_cl_4aZKSbaSoImCpjPkj5cn6rGa4ta9PL8wsClJF06ohgH" target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center gap-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 px-8 py-3.5 text-lg font-bold text-white shadow-lg backdrop-blur-sm transition-all hover:-translate-y-1 active:translate-y-0" title="Download for macOS via Polar">
                 <svg width="20" height="20" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.3 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.3zM234.5 106.6c20.3-25.1 31.9-55.5 28.5-86.6-26.6 1.1-57.8 17.6-78.6 42.1-18.2 21.4-31 51.5-27.2 81.4 29.8 2.2 57.3-13.6 77.3-36.9z" /></svg>
                 Download for macOS
               </a>
@@ -106,7 +106,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col items-center gap-2.5">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center gap-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 px-8 py-3.5 text-lg font-bold text-white shadow-lg backdrop-blur-sm transition-all hover:-translate-y-1 active:translate-y-0" title="Download for Windows via Polar">
+              <a href="https://buy.polar.sh/polar_cl_4aZKSbaSoImCpjPkj5cn6rGa4ta9PL8wsClJF06ohgH" target="_blank" rel="noopener noreferrer" className="flex w-full items-center justify-center gap-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 px-8 py-3.5 text-lg font-bold text-white shadow-lg backdrop-blur-sm transition-all hover:-translate-y-1 active:translate-y-0" title="Download for Windows via Polar">
                 <svg width="20" height="20" viewBox="0 0 448 512" fill="currentColor"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z" /></svg>
                 Download for Windows
               </a>
